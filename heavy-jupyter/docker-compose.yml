@@ -1,0 +1,22 @@
+version: '3.5'
+
+services:
+
+  jupyter:
+    build:
+      context: .
+      dockerfile: dockerfile
+    image: heavy-jupyter
+    volumes:
+      - ./data/:/home/jovyan/work/
+    ports:
+      - target: 8888
+        published: 8888
+        protocol: tcp
+        mode: host
+    environment:
+      GRANT_SUDO: "yes"
+      JUPYTER_ENABLE_LAB: "yes"
+    # enable sudo permissions
+    user:
+      "root"

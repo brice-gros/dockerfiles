@@ -1,0 +1,6 @@
+# https://github.com/iot-salzburg/gpu-jupyter/ : nvidia-cuda mixed with official jupyter image : https://jupyter-docker-stacks.readthedocs.io/en/latest/
+ARG BASE_CONTAINER=cschranz/gpu-jupyter:latest
+FROM $BASE_CONTAINER
+
+# install xeus-cling for cpp spport in jupyter : https://xeus-cling.readthedocs.io
+RUN conda install -c conda-forge xeus-cling
